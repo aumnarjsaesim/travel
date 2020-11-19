@@ -1,9 +1,51 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&family=Pattaya&family=Sriracha&family=Trirong&display=swap');
+.body1 {
     background-image: url(/pic/sky.jpg);
+}
+
+body {
+    background-color: lightgrey;
+}
+
+.bgw {
+    background-color: white;
+}
+
+.pattaya {
+    font-family: 'Pattaya', sans-serif;
+}
+
+.bai {
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+.sriracha {
+    font-family: 'Sriracha', cursive;
+}
+
+.trirong {
+    font-family: 'Trirong', serif;
 }
 
 .fonttitle {
     color: black;
     text-align: center;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.iframe {
+    height: 300px;
+    width: 300px;
+    resize: both;
+    overflow: auto;
+}
+
+.responsive {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 300px;
+}
+
+.c {
+    text-align: center;
 }
