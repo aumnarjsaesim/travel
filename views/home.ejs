@@ -104,7 +104,7 @@
                 <div class="col-5 ">
                     <iframe class="iframe-class" src="https://covid19.th-stat.com/th/share/dashboard"></iframe>
                     <script>
-                        document.getElementById("show").innerHTML = covid();
+                        document.getElementById("showcovid").innerHTML = covid();
 
                         function covid() {
                             var url = 'https://covid19.th-stat.com/api/open/cases';
@@ -124,7 +124,7 @@
                                             } else z++;
                                         }
                                     }
-                                    $('#show').html("<h6>จำนวนผู้ป่วยทั้งหมดในจังหวัดสมุทรปราการ : " + x + " คน</h6>" +
+                                    $('#showcovid').html("<h6>จำนวนผู้ป่วยทั้งหมดในจังหวัดสมุทรปราการ : " + x + " คน</h6>" +
                                         "<h6>รักษาหายแล้วจำนวน : " + y + " คน</h6>" +
                                         "<h6>กำลังรักษาจำนวน : " + z + " คน</h6>");
                                 });
@@ -132,10 +132,10 @@
                     </script>
 
                     <br>
-                    <div id="show" class="show"></div>
+                    <div id="showcovid" class="showcovid"></div>
                 </div>
                 <div class="col-6 ">
-                    <iframe class="iframe-class1" src="https://covid19.th-stat.com/th/share/map"></iframe>
+                    <iframe class="iframeclass1" src="https://covid19.th-stat.com/th/share/map"></iframe>
                 </div>
                 <div class="col"></div>
             </div>
@@ -174,13 +174,16 @@
                 <div class="col"></div>
                 <div class="col-1 "></div>
                 <div class="col-3 ">
-                    <img src="/pic/บางกระเจ้า.jpg" class="responsive">
+                    <div class="divbutsave">
+                        <img src="/pic/บางกระเจ้า.jpg" class="responsivee">
+                        <button class="butsave">Save</button>
+                    </div>
                 </div>
                 <div class="col-3 ">
-                    <img src="/pic/เมืองโบราณ.jpg" class="responsive">
+                    <img src="/pic/เมืองโบราณ.jpg" class="responsivee">
                 </div>
                 <div class="col-3 ">
-                    <img src="/pic/บางปู.jpg" class="responsive">
+                    <img src="/pic/บางปู.jpg" class="responsivee">
                 </div>
                 <div class="col-1 "></div>
                 <div class="col"></div>
@@ -219,13 +222,13 @@
                 <div class="col"></div>
                 <div class="col-1 "></div>
                 <div class="col-3 ">
-                    <img src="/pic/ฟาร์มจระเข้.jpg" class="responsive">
+                    <img src="/pic/ฟาร์มจระเข้.jpg" class="responsivee">
                 </div>
                 <div class="col-3 ">
-                    <img src="/pic/ช้าง.jpg" class="responsive">
+                    <img src="/pic/ช้าง.jpg" class="responsivee">
                 </div>
                 <div class="col-3 ">
-                    <img src="/pic/ป้อม.jpg" class="responsive">
+                    <img src="/pic/ป้อม.jpg" class="responsivee">
                 </div>
                 <div class="col-1 "></div>
                 <div class="col"></div>
@@ -264,13 +267,13 @@
                 <div class="col"></div>
                 <div class="col-1 "></div>
                 <div class="col-3 ">
-                    <img src="/pic/วัดอโศการาม.jpg" class="responsive">
+                    <img src="/pic/วัดอโศการาม.jpg" class="responsivee">
                 </div>
                 <div class="col-3 ">
-                    <img src="/pic/วัดบางพลีใหญ่.jpg" class="responsive">
+                    <img src="/pic/วัดบางพลีใหญ่.jpg" class="responsivee">
                 </div>
                 <div class="col-3 ">
-                    <img src="/pic/วัดพระสมุทรเจดีย์.jpg" class="responsive">
+                    <img src="/pic/วัดพระสมุทรเจดีย์.jpg" class="responsivee">
                 </div>
                 <div class="col-1 "></div>
                 <div class="col"></div>
@@ -305,7 +308,7 @@
                     <br>
                     <br>
                     <h3 style="margin-left: 10%;">
-                        <img src="/pic/iconhouse.png" class="responsiveicon"> ที่พักจังหวัดสมุทรปราการ
+                        <img src="/pic/iconhouse.png" class="responsiveicon"> ที่พักแนะนำจังหวัดสมุทรปราการ
                     </h3>
                     <br>
                 </div>
@@ -320,13 +323,13 @@
             <div class="col"></div>
             <div class="col-1 "></div>
             <div class="col-3 ">
-                <img src="/pic/intotheforest.jpg" class="responsive">
+                <img src="/pic/intotheforest.jpg" class="responsivee">
             </div>
             <div class="col-3 ">
-                <img src="/pic/อีสติน.jpg" class="responsive">
+                <img src="/pic/อีสติน.jpg" class="responsivee">
             </div>
             <div class="col-3 ">
-                <img src="/pic/ริมขอบฟ้า.jpg" class="responsive">
+                <img src="/pic/ริมขอบฟ้า.jpg" class="responsivee">
             </div>
             <div class="col-1 "></div>
             <div class="col"></div>
@@ -359,10 +362,6 @@
             <div class="col"></div>
         </div>
     </div>
-
-
-
-
 
 </body>
 
