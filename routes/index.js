@@ -1,5 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var mysql = require('mysql');
+var db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'mysql'
+});
+db.connect(function(err) {
+    if (err) console.log("Database error");
+    else console.log('connect data');
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
