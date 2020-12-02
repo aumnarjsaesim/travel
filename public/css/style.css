@@ -87,10 +87,10 @@
 .divbutsave .butsave {
     position: absolute;
     top: 15%;
-    right: 0%;
+    right: -5%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: green;
+    background-color: #555;
     color: white;
     font-size: 12px;
     padding: 8px 10px;
@@ -98,4 +98,12 @@
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
+}
+
+.divbutsave .butsave:hover {
+    background-color: black;
+}
+
+.divbutsave {
+    position: relative;
 }

@@ -24,36 +24,34 @@
           <span class="navbar-toggler-icon "></span>
         </button>
 
-                <form class="form-inline  ">
+                <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="ค้นหา" aria-label="Search">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit ">ค้นหา</button>
                 </form>
 
-                <div class="collapse navbar-collapse " id="navbarSupportedContent ">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent ">
                     <div class="mr-auto"></div>
                     <ul class="navbar-nav my-2 my-lg-0">
                         <li class="nav-item">
                             <a class="nav-link " href="http://localhost:3000/home">หน้าแรก<span class="sr-only ">(current)</span></a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          สถานที่ท่องเที่ยว
-        </a>
-                            <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">ตลาดน้ำโบราณบางพลี</a>
-                                <a class="dropdown-item" href="#">ป้อมพระจุลจอมเกล้า</a>
-                                <a class="dropdown-item" href="#">เมืองโบราณ</a>
-                                <a class="dropdown-item" href="#">พระสมุทรเจดีย์</a>
-                                <a class="dropdown-item" href="#">พิพิธภัณฑ์ช้างเอราวัณ</a>
-                                <a class="dropdown-item" href="#">ฟาร์มจระเข้</a>
-                                <a class="dropdown-item" href="#">สถานตากอากาศบางปู</a>
-                                <a class="dropdown-item" href="#">หลวงพ่อโตวัดบางพลีใหญ่ใน</a>
-                                <a class="dropdown-item" href="#">โครงการลูกพระดาบส</a>
-                            </div>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link " href="http://localhost:3000/favorite">รายการโปรด</a>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="/pic/profile.png" width="30" height="30">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="http://localhost:3000/login">เข้าสู่ระบบ</a>
+                                <a class="dropdown-item" href="http://localhost:3000/register">ลงทะเบียน</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="http://localhost:3000/home">ออกจากระบบ</a>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
         </nav>
