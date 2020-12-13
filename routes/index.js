@@ -5,10 +5,11 @@ var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'mysql'
+    database: 'mysql',
+    insecureAuth: true
 });
 db.connect(function(err) {
-    if (err) console.log("Database error");
+    if (err) console.log(err);
     else console.log('connect data');
 });
 
@@ -35,6 +36,10 @@ router.get('/farmcroc', function(req, res, next) {
 
 router.get('/favorite', function(req, res, next) {
     res.render('favorite', { title: 'รายการโปรด' });
+});
+
+router.get('/contact', function(req, res, next) {
+    res.render('contact', { title: 'ติดต่อ' });
 });
 
 router.get('/home', function(req, res, next) {
@@ -73,24 +78,18 @@ router.get('/watprasamutjedi', function(req, res, next) {
     res.render('watprasamutjedi', { title: 'วัดพระสมุทรเจดีย์' });
 });
 
-router.get('/pewa', function(req, res, next) {
-    res.render('pewa', { title: 'เพวา ลักชัวรี เซอร์วิส เรสซิเดนซ์' });
-});
-
-router.get('/proud', function(req, res, next) {
-    res.render('proud', { title: 'พราวด์ การ์เด้น อพาร์ตเมนท์' });
-});
-
-router.get('/authong', function(req, res, next) {
-    res.render('authong', { title: 'อู่ทอง แมนชั่น บางปู' });
-});
-
-router.get('/ler', function(req, res, next) {
-    res.render('ler', { title: 'โรงแรมเลอ เมอริเดียน สุวรรณภูมิ กอล์ฟ รีสอร์ท แอนด์ สปา' });
-});
-
-router.get('/airport', function(req, res, next) {
-    res.render('airport', { title: 'แอร์พอร์ท 17 อพาทร์เทล' });
+router.get('/sendMessage/:name/:email/:phone/:message', function(req, res) {
+    var name = req.params.name;
+    var email = req.params.email;
+    var phone = req.params.phone;
+    var message = req.params.message;
+    console.log(name + email + phone + message);
+    sql = "INSERT INTO test(name,email,phone,message)VALUES('" + name + "'," + "'" + email + "'," + "'" + phone + "'," + "'" + message + "'" + ");";
+    console.log(sql);
+    db.query(sql, function(err, result) {
+        if (err) console.log(err);
+        else console.log(result);
+    });
 });
 
 module.exports = router;
