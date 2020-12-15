@@ -10,7 +10,7 @@ var db = mysql.createConnection({
 });
 db.connect(function(err) {
     if (err) console.log(err);
-    else console.log('connect data');
+    else console.log('Connect Success!!');
 });
 
 /* GET home page. */
@@ -78,17 +78,35 @@ router.get('/watprasamutjedi', function(req, res, next) {
     res.render('watprasamutjedi', { title: 'วัดพระสมุทรเจดีย์' });
 });
 
-router.get('/sendMessage/:name/:email/:phone/:message', function(req, res) {
-    var name = req.params.name;
-    var email = req.params.email;
-    var phone = req.params.phone;
-    var message = req.params.message;
-    console.log(name + email + phone + message);
-    sql = "INSERT INTO test(name,email,phone,message)VALUES('" + name + "'," + "'" + email + "'," + "'" + phone + "'," + "'" + message + "'" + ");";
-    console.log(sql);
+// router.get('/contact/:name/:email/:phone/:message', function(req, res) {
+//     var name = req.params.name;
+//     var email = req.params.email;
+//     var phone = req.params.phone;
+//     var message = req.params.message;
+//     console.log(name + email + phone + message);
+//     sql = "INSERT INTO contact(name,email,phone,message)VALUES('" + name + "'," + "'" + email + "'," + "'" + phone + "'," + "'" + message + "'" + ");";
+//     console.log(sql);
+//     db.query(sql, function(err, result) {
+//         if (err) console.log(err);
+//         else console.log(result);
+//     });
+// });
+
+router.post('/contact', function(req, res) {
+    var name = req.body.name;
+    var email = req.body.email;
+    var phone = req.body.phone;
+    var message = req.body.message;
+    var sql = "insert into contact(name,email,phone,message)";
+    sql += " values('" + name + "','" + email + "','" + phone + "','" + email + "')";
+    console.log("name: \n" + name + "email: \n" + email + "phone: \n" + phone + "message: \n" + message);
     db.query(sql, function(err, result) {
-        if (err) console.log(err);
-        else console.log(result);
+        if (err) {
+            res.send("ส่งไม่สำเร็จ");
+        } else {
+            //   console.log(result)
+            res.send("ส่งแล้ว");
+        }
     });
 });
 
