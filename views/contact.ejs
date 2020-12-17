@@ -72,7 +72,7 @@
                     'phone': $("#phone").val(),
                     'message': $("#message").val(),
                 }
-                // alert("--")
+                // alert("--");
             $.post("/contact", formData3, function(result) {
                 $('#con_res').html(result);
             })

@@ -5,7 +5,7 @@ var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'mysql',
+    database: 'travel',
     insecureAuth: true
 });
 db.connect(function(err) {
@@ -46,6 +46,29 @@ router.get('/home', function(req, res, next) {
     res.render('home', { title: 'Home page' });
 });
 
+router.get('/detail', function(req, res, result) {
+    db.query("select detail from spk", function(err, rows) {
+        res.send(String(rows[0].detail));
+    });
+});
+
+router.get('/kamkwan', function(req, res, result) {
+    db.query("select kamkwan from spk", function(err, rows) {
+        res.send(String(rows[0].kamkwan));
+    });
+});
+// ดึงข้อมูล Contact ออกมา
+// router.get('/usercontact', function(req, res, next) {
+//     con.query('SELECT * FROM contact', function(err, rows) {
+//         // res.send(rows[2].email);
+//         var datadetails = '';
+//         for (let i = 0; i < rows.length; i++) {
+//             datadetails += String(rows[i].no) + "." + rows[i].email + " | " + rows[i].details + "<br>"
+//         }
+//         res.send(datadetails)
+//     })
+// })
+
 router.get('/login', function(req, res, next) {
     res.render('login', { title: 'Login' });
 });
@@ -78,27 +101,13 @@ router.get('/watprasamutjedi', function(req, res, next) {
     res.render('watprasamutjedi', { title: 'วัดพระสมุทรเจดีย์' });
 });
 
-// router.get('/contact/:name/:email/:phone/:message', function(req, res) {
-//     var name = req.params.name;
-//     var email = req.params.email;
-//     var phone = req.params.phone;
-//     var message = req.params.message;
-//     console.log(name + email + phone + message);
-//     sql = "INSERT INTO contact(name,email,phone,message)VALUES('" + name + "'," + "'" + email + "'," + "'" + phone + "'," + "'" + message + "'" + ");";
-//     console.log(sql);
-//     db.query(sql, function(err, result) {
-//         if (err) console.log(err);
-//         else console.log(result);
-//     });
-// });
-
 router.post('/contact', function(req, res) {
     var name = req.body.name;
     var email = req.body.email;
     var phone = req.body.phone;
     var message = req.body.message;
     var sql = "insert into contact(name,email,phone,message)";
-    sql += " values('" + name + "','" + email + "','" + phone + "','" + email + "')";
+    sql += " values('" + name + "','" + email + "','" + phone + "','" + message + "')";
     console.log("name: \n" + name + "email: \n" + email + "phone: \n" + phone + "message: \n" + message);
     db.query(sql, function(err, result) {
         if (err) {
@@ -110,4 +119,31 @@ router.post('/contact', function(req, res) {
     });
 });
 
+router.post('/register', function(req, res) {
+    var name = req.body.name;
+    var email = req.body.email;
+    var password = req.body.password;
+    var cpassword = req.body.cpassword;
+    var sql = "insert into reg(email,name,pass,confirmpassword)";
+    sql += " values('" + email + "','" + name + "','" + pass + "','" + cpassword + "')";
+
+    if (password == cpassword) {
+        db.query(sql, function(err, result) {
+            if (err) {
+                res.send("รหัสผ่านไม่ตรงกัน");
+            } else {
+                //   console.log(result)
+                res.send("สำเร็จ");
+            }
+        });
+    }
+
+});
+
+router.get('/cc', function(req, res, next) {
+    var sql = "SELECT * FROM `contact` WHERE 1";
+    db.query(sql, function(err, result) {
+        res.send(result);
+    });
+});
 module.exports = router;
