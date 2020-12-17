@@ -77,6 +77,23 @@ router.get('/register', function(req, res, next) {
     res.render('register', { title: 'Register' });
 });
 
+router.post('/register', function(req, res) {
+    var name = req.body.name;
+    var email = req.body.email;
+    var pass = req.body.pass;
+    var cpass = req.body.cpass;
+    var sql = "insert into reg(email,name,pass,cpass)";
+    sql += " values('" + email + "','" + name + "','" + pass + "','" + cpass + "')";
+    db.query(sql, function(err, result) {
+        if (err) {
+            res.send("ไม่สำเร็จ");
+        } else {
+            //   console.log(result)
+            res.send("สำเร็จ");
+        }
+    });
+});
+
 router.get('/oldcity', function(req, res, next) {
     res.render('oldcity', { title: 'เมืองโบราณ' });
 });
@@ -119,26 +136,7 @@ router.post('/contact', function(req, res) {
     });
 });
 
-router.post('/register', function(req, res) {
-    var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.password;
-    var cpassword = req.body.cpassword;
-    var sql = "insert into reg(email,name,pass,confirmpassword)";
-    sql += " values('" + email + "','" + name + "','" + pass + "','" + cpassword + "')";
 
-    if (password == cpassword) {
-        db.query(sql, function(err, result) {
-            if (err) {
-                res.send("รหัสผ่านไม่ตรงกัน");
-            } else {
-                //   console.log(result)
-                res.send("สำเร็จ");
-            }
-        });
-    }
-
-});
 
 router.get('/cc', function(req, res, next) {
     var sql = "SELECT * FROM `contact` WHERE 1";

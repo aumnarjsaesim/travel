@@ -20,32 +20,48 @@
             <div class="col-5">
                 <h1>ลงทะเบียน</h1>
                 <br>
-                <form action="/home">
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="example@hotmail.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter Username">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Confirm Password</label>
-                        <input type="password" class="form-control" id="cpassword" placeholder="Enter Password">
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary btn-block" onclick="window.location.href='/login'">Submit</button>
-                    <button type="button" class="btn btn-secondary btn-block " onclick="window.location.href='/home'">Cancel</button>
+                <form method='POST' accept="/register" id="contact3"></form>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="example@hotmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="pass" placeholder="Enter Password">
+                </div>
+                <div class="form-group">
+                    <label for="password">Confirm Password</label>
+                    <input type="password" class="form-control" id="cpass" placeholder="Enter Password">
+                </div>
+                <p id="con_res"></p>
+                <br>
+                <button type="submit" class="btn btn-primary btn-block" onclick="window.location.href='/home'">Submit</button>
+                <button type="button" class="btn btn-secondary btn-block " onclick="window.location.href='/home'">Cancel</button>
                 </form>
             </div>
             <div class="col ">
             </div>
         </div>
     </div>
+    <script>
+        $("#contact3").submit(function(event) {
+            event.preventDefault()
+            var formData3 = { //ทำเป็น json
+                'email': $("#email").val(),
+                'name': $("#name").val(),
+                'pass': $("#pass").val(),
+                'cpass': $("#cpass").val(),
+            }
+            alert("--");
+            $.post("/register", formData3, function(result) {
+                $('#con_res').html(result);
+            })
+        })
+    </script>
 </body>
 
 </html>
